@@ -1,0 +1,284 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>cardon</title>
+	<meta name="description" content="Documentation for cardon">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+	<script async src="assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">cardon</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<h1>cardon</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<p><img src="docs/cardon.png" alt="cardon"></p>
+				<p><a href="https://www.npmjs.com/package/cardon"><img src="https://img.shields.io/npm/v/cardon.svg" alt="Npm Version"></a> <a href="LICENSE"><img src="http://img.shields.io/npm/l/cardon.svg" alt="License"></a></p>
+				<a href="#about" id="about" style="color: inherit; text-decoration: none;">
+					<h2>About</h2>
+				</a>
+				<p>Create reusable asynchronous functional cards.</p>
+				<p>Allows to create the cards used on the pages once and allows them to be called as an async function on all screens.</p>
+				<a href="#demo" id="demo" style="color: inherit; text-decoration: none;">
+					<h2>Demo</h2>
+				</a>
+				<p><a href="https://codesandbox.io/s/example-usage-cardon-u60wc?fontsize=14&amp;hidenavigation=1&amp;theme=dark"><img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Edit Example Usage - cardon"></a></p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h2>Installation</h2>
+				</a>
+				<p>Install cardon as a dependency</p>
+				<pre><code class="language-shell"><span style="color: #008000"># Yarn</span>
+<span style="color: #000000">$ yarn add cardon</span>
+
+<span style="color: #008000"># NPM</span>
+<span style="color: #000000">$ npm install cardon</span>
+</code></pre>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h2>Usage</h2>
+				</a>
+				<p>You only need the <code>&#39;CardonContainer&#39;</code> and <code>&#39;withCardon&#39;</code> methods to use the it.</p>
+				<a href="#cardoncontainer" id="cardoncontainer" style="color: inherit; text-decoration: none;">
+					<h3><code>CardonContainer</code></h3>
+				</a>
+				<p>Creates an instance for the cards and all cards are displayed inside here.</p>
+				<a href="#withcardon" id="withcardon" style="color: inherit; text-decoration: none;">
+					<h3><code>withCardon</code></h3>
+				</a>
+				<p>Wraps the component you want to show as a card and injects properties named <code>&#39;visible&#39;</code> and <code>&#39;get&#39;</code> inside it and then returns an interface to use it.</p>
+				<pre><code class="language-ts"><span style="color: #000000">{</span>
+<span style="color: #000000">  visible:(</span><span style="color: #001080">args</span><span style="color: #000000">?: </span><span style="color: #267F99">any</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #001080">any</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">  get: (</span><span style="color: #001080">returnValue</span><span style="color: #000000">?:</span><span style="color: #267F99">any</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Function</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<p>Every card returns two functions named <code>&#39;show&#39;</code> and <code>&#39;hide&#39;</code> when called it</p>
+				<pre><code class="language-ts"><span style="color: #000000">{</span>
+<span style="color: #000000">  show:(</span><span style="color: #001080">args</span><span style="color: #000000">?: </span><span style="color: #267F99">any</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Promise</span><span style="color: #000000">&lt;</span><span style="color: #001080">any</span><span style="color: #000000">&gt;,</span>
+<span style="color: #000000">  hide:() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #0000FF">void</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#get" id="get" style="color: inherit; text-decoration: none;">
+					<h4><code>get:</code></h4>
+				</a>
+				<p>The prop is a callback generator function and all callback function must be created by calling the <code>&#39;get&#39;</code> function to return the desired callback value. Only created callback functions via <code>&#39;get&#39;</code> should be used in cards to works properly.</p>
+				<a href="#visible" id="visible" style="color: inherit; text-decoration: none;">
+					<h4><code>visible:</code></h4>
+				</a>
+				<p>The prop indicates whether the card should be visible or not. This value will change according to the call of the <code>&#39;show&#39;</code> or <code>&#39;hide&#39;</code> function</p>
+				<a href="#show" id="show" style="color: inherit; text-decoration: none;">
+					<h4><code>show:</code></h4>
+				</a>
+				<p>The function to be called to show the card. It returns a promise with the data and waits until the card is closed or can be used the callback function with the second parameter. The card will be hidden automatically after the result return it.</p>
+				<a href="#hide" id="hide" style="color: inherit; text-decoration: none;">
+					<h4><code>hide:</code></h4>
+				</a>
+				<p>Allows the card to be canceled and hidden without waiting for data to return. It does not need to be used generally, but can be used according to the situation.</p>
+				<a href="#example" id="example" style="color: inherit; text-decoration: none;">
+					<h2>Example</h2>
+				</a>
+				<p>There are few simple steps to use:</p>
+				<ul>
+					<li>Put the <code>CardonContainer</code> component to the root file</li>
+				</ul>
+				<pre><code class="language-diff"><span style="color: #000000">// App.js</span>
+<span style="color: #000000">function App() {</span>
+<span style="color: #000000">  return (</span>
+<span style="color: #000000">    &lt;div&gt;</span>
+<span style="color: #000000">       &lt;Main /&gt;</span>
+<span style="color: #098658">+      &lt;CardonContainer /&gt;</span>
+<span style="color: #000000">    &lt;/div &gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">export default App;</span>
+</code></pre>
+				<ul>
+					<li><p>Create a folder named <code>&#39;cardon&#39;</code> or any name and after put your cards there.</p>
+					</li>
+					<li><p>Wrap the component you want to use as a card like below </p>
+					</li>
+				</ul>
+				<p>Example reusable card:</p>
+				<pre><code class="language-jsx"><span style="color: #000000">// ./cardon/MyModalCard.js</span>
+<span style="color: #000000">import { withCardon } from &quot;cardon&quot;;</span>
+<span style="color: #000000">import React from &quot;react&quot;;</span>
+
+<span style="color: #000000">function MyModalCard({ visible, get, title }) {</span>
+<span style="color: #000000">  return (</span>
+<span style="color: #000000">    &lt;Modal open={visible} onClose={get(null)}&gt;</span>
+<span style="color: #000000">      My Reusable &#039;{title}&#039; Modal!</span>
+<span style="color: #000000">      &lt;button onClick={get(true)}&gt;Yes&lt;/button&gt;</span>
+<span style="color: #000000">      &lt;button onClick={get(false)}&gt;No&lt;/button&gt;</span>
+<span style="color: #000000">    &lt;/Modal&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">export default withCardon(MyModalCard);</span>
+</code></pre>
+				<p>Or with Typescript:</p>
+				<pre><code class="language-tsx"><span style="color: #008000">// ./cardon/MyModalCard.js</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">withCardon</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;cardon&quot;</span><span style="color: #000000">;</span>
+<span style="color: #AF00DB">import</span><span style="color: #000000"> </span><span style="color: #001080">React</span><span style="color: #000000"> </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;react&quot;</span><span style="color: #000000">;</span>
+
+<span style="color: #0000FF">interface</span><span style="color: #000000"> </span><span style="color: #267F99">Props</span><span style="color: #000000"> {</span>
+<span style="color: #000000">    </span><span style="color: #001080">title</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000"> </span>
+<span style="color: #000000">} </span>
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">MyModalCard</span><span style="color: #000000">({ </span><span style="color: #001080">visible</span><span style="color: #000000">, </span><span style="color: #001080">get</span><span style="color: #000000">, </span><span style="color: #001080">title</span><span style="color: #000000"> }) {</span>
+<span style="color: #000000">  </span><span style="color: #AF00DB">return</span><span style="color: #000000"> (</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;div&gt;</span>
+<span style="color: #000000">      My Reusable &#039;</span><span style="color: #0000FF">{</span><span style="color: #001080">title</span><span style="color: #0000FF">}</span><span style="color: #000000">&#039; Card!</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #795E26">get</span><span style="color: #000000FF">(</span><span style="color: #0000FF">true</span><span style="color: #000000FF">)</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span><span style="color: #000000">Yes</span><span style="color: #800000">&lt;/button&gt;</span>
+<span style="color: #000000">      </span><span style="color: #800000">&lt;button</span><span style="color: #000000"> </span><span style="color: #FF0000">onClick</span><span style="color: #000000">=</span><span style="color: #0000FF">{</span><span style="color: #795E26">get</span><span style="color: #000000FF">(</span><span style="color: #0000FF">false</span><span style="color: #000000FF">)</span><span style="color: #0000FF">}</span><span style="color: #800000">&gt;</span><span style="color: #000000">No</span><span style="color: #800000">&lt;/button&gt;</span>
+<span style="color: #000000">    </span><span style="color: #800000">&lt;/div&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">}</span>
+<span style="color: #AF00DB">export</span><span style="color: #000000"> </span><span style="color: #AF00DB">default</span><span style="color: #000000"> </span><span style="color: #795E26">withCardon</span><span style="color: #000000">&lt;</span><span style="color: #267F99">Props</span><span style="color: #000000">, </span><span style="color: #267F99">boolean</span><span style="color: #000000">&gt;(</span><span style="color: #001080">MyModalCard</span><span style="color: #000000">)</span>
+
+</code></pre>
+				<p>Alternative card usage with <code>&#39;destroyOnHide&#39;</code> options:
+				(It is required to destroy the card if the card is not using the <code>&#39;visible&#39;</code> prop)</p>
+				<pre><code class="language-jsx"><span style="color: #000000">// ./cardon/MyModalCard.js</span>
+<span style="color: #000000">import React from &quot;react&quot;;</span>
+<span style="color: #000000">import { withCardon } from &quot;cardon&quot;;</span>
+
+<span style="color: #000000">function MyModalCard({ visible, get, title }) {</span>
+<span style="color: #000000">  return (</span>
+<span style="color: #000000">    &lt;div&gt;</span>
+<span style="color: #000000">      My Reusable &#039;{title}&#039; Card!</span>
+<span style="color: #000000">      &lt;button onClick={get(true)}&gt;Yes&lt;/button&gt;</span>
+<span style="color: #000000">      &lt;button onClick={get(false)}&gt;No&lt;/button&gt;</span>
+<span style="color: #000000">    &lt;/div&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">}</span>
+<span style="color: #000000">export default withCardon(MyModalCard, { destroyOnHide: true });</span>
+</code></pre>
+				<ul>
+					<li>Import the component and call the &#39;<code>show</code>&#39; function to show it, pass props as optional to card and get the result asynchronously</li>
+				</ul>
+				<p>Example call:</p>
+				<pre><code class="language-jsx"><span style="color: #000000"> let result = await MyModalCard.show({ title: &quot;Awesome&quot; });</span>
+</code></pre>
+				<p>Example usage:</p>
+				<pre><code class="language-jsx"><span style="color: #000000">import React from &quot;react&quot;;</span>
+<span style="color: #000000">import { MyModalCard } from &quot;./cardon/MyModalCard&quot;;</span>
+<span style="color: #000000">function HomePage() {</span>
+<span style="color: #000000">  const [modalResult, setModalResult] = React.useState(false);</span>
+<span style="color: #000000">  const showModal = async () =&gt; {</span>
+<span style="color: #000000">    let result = await MyModalCard.show({ title: &quot;Awesome&quot; });</span>
+<span style="color: #000000">    setModalResult(result);</span>
+<span style="color: #000000">  };</span>
+
+<span style="color: #000000">  return (</span>
+<span style="color: #000000">    &lt;&gt;</span>
+<span style="color: #000000">      {modalResult ? &quot;Yes&quot; : &quot;No&quot;}</span>
+<span style="color: #000000">      &lt;button onClick={showModal}&gt;Show&lt;/button&gt;</span>
+<span style="color: #000000">    &lt;/&gt;</span>
+<span style="color: #000000">  );</span>
+<span style="color: #000000">}</span>
+</code></pre>
+				<a href="#api" id="api" style="color: inherit; text-decoration: none;">
+					<h2>API</h2>
+				</a>
+				<p>Check <a href="https://hepter.github.io/cardon/modules">here</a> for the API document</p>
+				<a href="#license" id="license" style="color: inherit; text-decoration: none;">
+					<h2>License</h2>
+				</a>
+				<p>MIT - Mustafa Kuru</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/withcardonprops.html" class="tsd-kind-icon">With<wbr>Cardon<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#withcardonclose" class="tsd-kind-icon">With<wbr>Cardon<wbr>Close</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#withcardonoptions" class="tsd-kind-icon">With<wbr>Cardon<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#withcardonresult" class="tsd-kind-icon">With<wbr>Cardon<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="modules.html#withcardonshow" class="tsd-kind-icon">With<wbr>Cardon<wbr>Show</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#cardoncontainer" class="tsd-kind-icon">Cardon<wbr>Container</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="modules.html#withcardon" class="tsd-kind-icon">with<wbr>Cardon</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

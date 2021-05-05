@@ -1,0 +1,47 @@
+{
+  "name": "cardon",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Make reusable React cards, pop-ups or modals as an async function",
+  "keywords": [
+    "react",
+    "alert",
+    "card",
+    "modal",
+    "reusable",
+    "popup",
+    "manager"
+  ],
+  "homepage": "https://github.com/hepter/cardon",
+  "bugs": {
+    "url": "https://github.com/hepter/cardon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hepter/cardon.git"
+  },
+  "license": "MIT",
+  "author": "Mustafa Kuru <mustafakuru042@gmail.com>",
+  "main": "lib/index.js",
+  "source": "src/index.ts",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc --noEmit false",
+    "doc": "typedoc src/index.ts"
+  },
+  "dependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/node": ">=12.0.0",
+    "@types/react": ">=16.8.0",
+    "@types/react-dom": ">=16.8.0",
+    "typedoc": "0.20.36",
+    "typescript": "^4.0.0"
+  }
+}
