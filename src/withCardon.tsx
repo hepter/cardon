@@ -58,7 +58,7 @@ export type WithCardonResult<T, P> = {
  * }
  * ```
  */
-export function withCardon<P, R = {}>(component: React.ComponentType<P & WithCardonProps<R>>, options: WithCardonOptions) {
+export function withCardon<P, R = {}>(component: React.ComponentType<P & WithCardonProps<R>>, options?: WithCardonOptions) {
 
     var onShow: WithCardonOnShow = () => { };
     function WithCardonEnchanted() {
