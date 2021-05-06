@@ -14,7 +14,7 @@ export function CardonContainer(): ReactElement<any> {
     }, [])
     return (
         <>
-            {cardList.map(Comp => <Comp />)}
+            {cardList.map((Comp, index) => <Comp key={"CardonContainer_" + index} />)}
         </>
     )
 }
