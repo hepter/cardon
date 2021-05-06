@@ -1,4 +1,4 @@
-![cardon](docs/cardon.png)
+![cardon](https://github.com/hepter/cardon/raw/master/docs/cardon.png)
 
 [![Npm Version][npm-version-image]][npm-version-url] [![License][license-image]][license-url]
 
@@ -27,38 +27,36 @@ $ npm install cardon
 
 ## Usage
 
-You only need the `'CardonContainer'` and `'withCardon'` methods to use the it.
+Just need the `'CardonContainer'` and `'withCardon'` methods to use it.
 
-### `CardonContainer`
-Creates an instance for the cards and all cards are displayed inside here.
+Component Name | Description
+--- | --- 
+CardonContainer |Creates an instance for the cards and all cards are displayed inside here.
+withCardon|Wraps the component you want to show as a card and injects properties named `'visible'` and `'get'` inside it and then returns an interface to use it.
 
-### `withCardon`
-Wraps the component you want to show as a card and injects properties named `'visible'` and `'get'` inside it and then returns an interface to use it.
-```ts
-{
-  visible:(args?: any) => Promise<any>,
-  get: (returnValue?:any) => Function
-}
-```
+##### `withCardon` Injected props
+Name | Type | Description
+--- | --- | ---
+visible|boolean|The prop indicates whether the card should be visible or not. This value will change according to the call of the `'show'` or `'hide'` function
+get | WithCardonGet|The prop is a callback generator function and all callback function must be created by calling the `'get'` function to return the desired callback value. Only created callback functions via `'get'` should be used in cards to works properly.
+
+
+ 
 
 Every card returns two functions named `'show'` and `'hide'` when called it
-```ts
-{
-  show:(args?: any) => Promise<any>,
-  hide:() => void
-}
-```
+##### `withCardon` methods after wrapped
+Name | <div style="width:425px">Type</div>  | Description
+--- | ---  | ---
+show | (props?: P, callback?: (result: R) => void) => Promise\<R> |The function to be called to show the card. It returns a promise with the data and waits until the card is closed or can be used the callback function with the second parameter. The card will be hidden automatically after the result return it.
+hide | () => void |Allows the card to be canceled and hidden without waiting for data to return. It does not need to be used generally, but can be used according to the situation.
 
-####  `get:`  
-The prop is a callback generator function and all callback function must be created by calling the `'get'` function to return the desired callback value. Only created callback functions via `'get'` should be used in cards to works properly.
-####  `visible:`
-The prop indicates whether the card should be visible or not. This value will change according to the call of the `'show'` or `'hide'` function
+We could pass options with the second parameter for `withCardon(component, props)`
+##### `withCardon` props
+Name |  Type  | Default Value | Description
+--- | ---  | --- | ---
+destroyOnHide | boolean | false | Enables destroy the component while hiding. When you do not change this property, the component will not be removed from the root and you will need to hide it with the 'visible' property manually.
+     
 
-####  `show:`
-The function to be called to show the card. It returns a promise with the data and waits until the card is closed or can be used the callback function with the second parameter. The card will be hidden automatically after the result return it.
-
-####  `hide:`
-Allows the card to be canceled and hidden without waiting for data to return. It does not need to be used generally, but can be used according to the situation.
 
 ## Example
 There are few simple steps to use:
@@ -85,7 +83,7 @@ export default App;
 
 Example reusable card:
 ```jsx
-// ./cardon/MyModalCard.js
+// ./cardon/MyModalCard.jsx
 import { withCardon } from "cardon";
 import React from "react";
 
@@ -103,7 +101,7 @@ export default withCardon(MyModalCard);
 
 Or with Typescript:
 ```tsx
-// ./cardon/MyModalCard.js
+// ./cardon/MyModalCard.tsx
 import { withCardon } from "cardon";
 import React from "react";
 
@@ -127,11 +125,11 @@ export default withCardon<Props, boolean>(MyModalCard)
 Alternative card usage with `'destroyOnHide'` options:
 (It is required to destroy the card if the card is not using the `'visible'` prop)
 ```jsx
-// ./cardon/MyModalCard.js
+// ./cardon/MyModalCard.jsx
 import React from "react";
 import { withCardon } from "cardon";
 
-function MyModalCard({ visible, get, title }) {
+function MyModalCard({ get, title }) {
   return (
     <div>
       My Reusable '{title}' Card!

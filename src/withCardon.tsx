@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { CardonManager } from "./CardonManager";
 
-export type WithCardonClose<T> = (data?: T) => VoidFunction
+export type WithCardonGet<T> = (data?: T) => VoidFunction
 export interface WithCardonProps<R> {
     /**
      * Represents whether the card is visible or not.
@@ -11,7 +11,7 @@ export interface WithCardonProps<R> {
     /**
      * Represents the function that generates the callback functions. It can be returned by passing data into the parameter.
      */
-    get: WithCardonClose<R>
+    get: WithCardonGet<R>
 }
 export type WithCardonOptions = {
     /**
@@ -70,7 +70,7 @@ export function withCardon<P, R = {}>(component: React.ComponentType<P & WithCar
             setVisible(true);
         }
 
-        const get: WithCardonClose<R> = (data?: R) => () => {
+        const get: WithCardonGet<R> = (data?: R) => () => {
             params.resolve(data)
             setVisible(false);
         }

@@ -1,4 +1,4 @@
-import { withCardon } from "cardon";
+import { withCardon, WithCardonProps } from "cardon";
 import React from "react";
 
 
@@ -7,8 +7,7 @@ interface AlertCardProps {
     id: number
     name?: string
 }
-
-export default withCardon<AlertCardProps, boolean>(function AlertCard({ visible, get, name, id }) {
+function AlertCard({ visible, get, name, id }: AlertCardProps & WithCardonProps<boolean>) {
 
     return (
         <div style={{
@@ -37,7 +36,8 @@ export default withCardon<AlertCardProps, boolean>(function AlertCard({ visible,
             </div>
         </div>
     )
-}, { destroyOnHide: true })
+}
+export default withCardon(AlertCard, { destroyOnHide: true })
 
 
 
