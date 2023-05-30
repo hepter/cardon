@@ -203,7 +203,14 @@ Check [here](https://hepter.github.io/cardon/modules) for the API document
 
 - Added a new optional prop 'key' to the 'withCardon' method. This key is used to uniquely identify a card for specific operations, such as hiding the card.
 - Introduced a new class 'Cardon' with utility methods for managing cards. The Cardon class includes the methods 'clear', which removes all visible cards, and 'hide', which hides a specific card given its unique key.
+- Fixed an issue where a component wrapped with withCardon would not display after being modified.
+- Resolved an issue where the hide() function for cards was not working.
 
+### v1.0.1
+- Minor fixes
+
+### v1.0.0
+- Initial release
 ## License
 
 MIT - Mustafa Kuru
