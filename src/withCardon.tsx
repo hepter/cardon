@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { CardonManager } from "./CardonManager";
 
 export type WithCardonGet<T> = (data?: T) => VoidFunction
@@ -22,6 +22,12 @@ export type WithCardonOptions = {
      * Default value is `'false'`
      */
     destroyOnHide?: boolean
+
+    /**
+     * The key of the component. You can close the component by calling the 'CardonContainer.remove(key)' method.
+     */
+    key?: string
+
 }
 type WithCardonOnShow = (resolve: (data: any) => void, props?: any) => void
 
@@ -39,9 +45,16 @@ export type WithCardonResult<T, P> = {
     /**
      * Hides the card.
      * 
-     * By default, it calls the 'get' method that comes as props: `get(null)`
+     * By default, it calls the 'get' method that is passed as props: `get(undefined)`. If you call it with a parameter, the promise resolves with that value.
      */
-    hide: () => void
+    hide: (rejectData: any) => void
+}
+
+export type CardonRef = {
+    resolve: (value: any) => void,
+    setVisible: (value: boolean) => void,
+    key: string,
+    component: () => JSX.Element | null
 }
 /**
  * Wraps the component you want to make reusable and returns the `'show'` and `'hide'` functions within an object.
@@ -60,7 +73,14 @@ export type WithCardonResult<T, P> = {
  */
 export function withCardon<P, R = {}>(component: React.ComponentType<P & WithCardonProps<R>>, options?: WithCardonOptions) {
 
-    var onShow: WithCardonOnShow = () => { };
+    let onShow: WithCardonOnShow = () => { };
+    const cardonKey = options?.key || Math.random().toString(36).substring(2);
+    let cardonRef:CardonRef = {
+        resolve: (value: any) => { },
+        setVisible: (value: boolean) => { },
+        key: cardonKey,
+        component: () => null
+    };
     function WithCardonEnchanted() {
         const [params, setParams] = React.useState<WithCardonEnchantedState>({ props: {}, resolve: (data: any) => { } });
         const [visible, setVisible] = React.useState(false);
@@ -68,6 +88,7 @@ export function withCardon<P, R = {}>(component: React.ComponentType<P & WithCar
         onShow = (resolve, params) => {
             setParams({ props: params || {}, resolve });
             setVisible(true);
+            cardonRef.setVisible = setVisible;
         }
 
         const get: WithCardonGet<R> = (data?: R) => () => {
@@ -89,26 +110,26 @@ export function withCardon<P, R = {}>(component: React.ComponentType<P & WithCar
             >
             </Component>
         );
-
     }
-    CardonManager.append(WithCardonEnchanted);
-    var resolveFunc = (value: any) => { };
-    var show: WithCardonShow<P, R> = (props?: P, callback?: (result: R) => void) => {
+    cardonRef.component = WithCardonEnchanted;
+    CardonManager.append(cardonRef);
+    const show: WithCardonShow<P, R> = (props?: P, callback?: (result: R) => void) => {
         const promise = new Promise<R>((resolve) => {
             onShow(resolve, props)
-            resolveFunc = resolve;
+            cardonRef.resolve = resolve;
         });
-        if (callback && typeof callback === "function") {
-            promise.then(data => callback(data));
+        if (typeof callback === "function") {
+            promise.then(callback);
         }
         return promise;
     };
 
-    const hide = () => {
-        if (resolveFunc) {
-            resolveFunc(null);
-            resolveFunc = (value: any) => { };
-        }
+    const hide = (rejectData: any) => {
+        cardonRef.resolve(rejectData);
+        cardonRef.resolve = (value: any) => { };
+
+        cardonRef.setVisible(false);
+        cardonRef.setVisible = (value: boolean) => { };
     };
 
 

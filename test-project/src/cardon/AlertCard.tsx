@@ -1,4 +1,4 @@
-import { withCardon, WithCardonProps } from "cardon";
+import Cardon, { withCardon, WithCardonProps } from "cardon";
 import React from "react";
 
 
@@ -9,6 +9,13 @@ interface AlertCardProps {
 }
 function AlertCard({ visible, get, name, id }: AlertCardProps & WithCardonProps<boolean>) {
 
+    
+    const clickCustomAlertCard1Hide = async () => { 
+        Cardon.hide("alert-card-key");
+    }
+    const clickCustomAlertCard1HideAlt = async () => { 
+        Cardon.clear();
+    }
     return (
         <div style={{
             display: "flex",
@@ -33,11 +40,20 @@ function AlertCard({ visible, get, name, id }: AlertCardProps & WithCardonProps<
                 <br />
                 <button onClick={get(true)}>Yes</button>
                 <button onClick={get(false)}>No</button>
+
+                <br/>
+                
+            <button onClick={clickCustomAlertCard1Hide}>
+                Open Custom Alert Hide
+            </button>
+            <button onClick={clickCustomAlertCard1HideAlt}>
+                Open Custom Alert Hide Alternative
+            </button>
             </div>
         </div>
     )
 }
-export default withCardon(AlertCard, { destroyOnHide: true })
+export default withCardon(AlertCard, { destroyOnHide: true, key: "alert-card-key" })
 
 
 

@@ -62,6 +62,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Classes</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-class"><a href="classes/default.html" class="tsd-kind-icon">default</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/withcardonprops.html" class="tsd-kind-icon">With<wbr>Cardon<wbr>Props</a></li>
@@ -70,6 +76,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias"><a href="modules.html#cardonref" class="tsd-kind-icon">Cardon<wbr>Ref</a></li>
 								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#withcardonget" class="tsd-kind-icon">With<wbr>Cardon<wbr>Get</a></li>
 								<li class="tsd-kind-type-alias"><a href="modules.html#withcardonoptions" class="tsd-kind-icon">With<wbr>Cardon<wbr>Options</a></li>
 								<li class="tsd-kind-type-alias tsd-has-type-parameter"><a href="modules.html#withcardonresult" class="tsd-kind-icon">With<wbr>Cardon<wbr>Result</a></li>
@@ -88,13 +95,88 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias">
+					<a name="cardonref" class="tsd-anchor"></a>
+					<h3>Cardon<wbr>Ref</h3>
+					<div class="tsd-signature tsd-kind-icon">Cardon<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">JSX.Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol">; </span>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>setVisible<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> }</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/withCardon.tsx#L53">withCardon.tsx:53</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter">
+								<h5>component<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">JSX.Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">JSX.Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">JSX.Element</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></h5>
+							</li>
+							<li class="tsd-parameter">
+								<h5>resolve<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>value: <span class="tsd-signature-type">any</span></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li class="tsd-parameter">
+								<h5>set<wbr>Visible<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+								<ul class="tsd-parameters">
+									<li class="tsd-parameter-signature">
+										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+										</ul>
+										<ul class="tsd-descriptions">
+											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>value: <span class="tsd-signature-type">boolean</span></h5>
+													</li>
+												</ul>
+												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 					<a name="withcardonget" class="tsd-anchor"></a>
 					<h3>With<wbr>Cardon<wbr>Get</h3>
 					<div class="tsd-signature tsd-kind-icon">With<wbr>Cardon<wbr>Get&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">VoidFunction</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hepter/cardon/blob/038e853/src/withCardon.tsx#L4">withCardon.tsx:4</a></li>
+							<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/withCardon.tsx#L4">withCardon.tsx:4</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -128,10 +210,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-type-alias">
 					<a name="withcardonoptions" class="tsd-anchor"></a>
 					<h3>With<wbr>Cardon<wbr>Options</h3>
-					<div class="tsd-signature tsd-kind-icon">With<wbr>Cardon<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>destroyOnHide<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">With<wbr>Cardon<wbr>Options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>destroyOnHide<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">; </span>key<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hepter/cardon/blob/038e853/src/withCardon.tsx#L16">withCardon.tsx:16</a></li>
+							<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/withCardon.tsx#L16">withCardon.tsx:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -147,16 +229,24 @@
 									<p>Default value is <code>&#39;false&#39;</code></p>
 								</div>
 							</li>
+							<li class="tsd-parameter">
+								<h5><span class="tsd-flag ts-flagOptional">Optional</span> key<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>The key of the component. You can close the component by calling the &#39;CardonContainer.remove(key)&#39; method.</p>
+									</div>
+								</div>
+							</li>
 						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-has-type-parameter">
 					<a name="withcardonresult" class="tsd-anchor"></a>
 					<h3>With<wbr>Cardon<wbr>Result</h3>
-					<div class="tsd-signature tsd-kind-icon">With<wbr>Cardon<wbr>Result&lt;T, P&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>hide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>show<span class="tsd-signature-symbol">: </span><a href="modules.html#withcardonshow" class="tsd-signature-type" data-tsd-kind="Type alias">WithCardonShow</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
+					<div class="tsd-signature tsd-kind-icon">With<wbr>Cardon<wbr>Result&lt;T, P&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{ </span>hide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rejectData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">; </span>show<span class="tsd-signature-symbol">: </span><a href="modules.html#withcardonshow" class="tsd-signature-type" data-tsd-kind="Type alias">WithCardonShow</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">P</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> }</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hepter/cardon/blob/038e853/src/withCardon.tsx#L34">withCardon.tsx:34</a></li>
+							<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/withCardon.tsx#L40">withCardon.tsx:40</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -172,20 +262,26 @@
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter">
-								<h5>hide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+								<h5>hide<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>rejectData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
 								<div class="tsd-comment tsd-typography">
 									<div class="lead">
 										<p>Hides the card.</p>
 									</div>
-									<p>By default, it calls the &#39;get&#39; method that comes as props: <code>get(null)</code></p>
+									<p>By default, it calls the &#39;get&#39; method that is passed as props: <code>get(undefined)</code>. If you call it with a parameter, the promise resolves with that value.</p>
 								</div>
 								<ul class="tsd-parameters">
 									<li class="tsd-parameter-signature">
 										<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-literal">
-											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+											<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>rejectData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 										</ul>
 										<ul class="tsd-descriptions">
 											<li class="tsd-description">
+												<h4 class="tsd-parameters-title">Parameters</h4>
+												<ul class="tsd-parameters">
+													<li>
+														<h5>rejectData: <span class="tsd-signature-type">any</span></h5>
+													</li>
+												</ul>
 												<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 											</li>
 										</ul>
@@ -209,7 +305,7 @@
 					<div class="tsd-signature tsd-kind-icon">With<wbr>Cardon<wbr>Show&lt;P, R&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>props<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">P</span>, callback<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">(</span>result<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/hepter/cardon/blob/038e853/src/withCardon.tsx#L33">withCardon.tsx:33</a></li>
+							<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/withCardon.tsx#L39">withCardon.tsx:39</a></li>
 						</ul>
 					</aside>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -277,7 +373,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/hepter/cardon/blob/038e853/src/CardonContainer.tsx#L5">CardonContainer.tsx:5</a></li>
+									<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/CardonContainer.tsx#L5">CardonContainer.tsx:5</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">ReactElement</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -294,7 +390,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/hepter/cardon/blob/038e853/src/withCardon.tsx#L61">withCardon.tsx:61</a></li>
+									<li>Defined in <a href="https://github.com/hepter/cardon/blob/1ec09e0/src/withCardon.tsx#L74">withCardon.tsx:74</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -353,8 +449,14 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/default.html" class="tsd-kind-icon">default</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-has-type-parameter">
 						<a href="interfaces/withcardonprops.html" class="tsd-kind-icon">With<wbr>Cardon<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#cardonref" class="tsd-kind-icon">Cardon<wbr>Ref</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
 						<a href="modules.html#withcardonget" class="tsd-kind-icon">With<wbr>Cardon<wbr>Get</a>
@@ -385,6 +487,12 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>

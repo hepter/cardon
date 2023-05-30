@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default withCardon(function ModarCard({ title, visible, get }) {
+export default withCardon(function ModalCard({ title, visible, get }) {
     const classes = useStyles();
 
     return (

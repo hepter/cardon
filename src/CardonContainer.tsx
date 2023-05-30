@@ -1,20 +1,22 @@
-import React from 'react'
-import { ReactElement, useEffect } from 'react'
+import React, { ReactElement, useEffect } from 'react'
 import { CardonManager } from "./CardonManager";
+import { CardonRef } from './withCardon';
 
 export function CardonContainer(): ReactElement<any> {
-    const [cardList, setCardList] = React.useState<React.ComponentType<any>[]>([]);
+    const [refList, setRefList] = React.useState<CardonRef[]>([]);
     useEffect(() => {
 
-        const cardListChangedCallback = (componentList: React.ComponentType<any>[]) => {
-            setCardList(componentList);
+        const cardListChangedCallback = (refList: CardonRef[]) => {
+            setRefList([...refList]);
         }
 
         return CardonManager.subscribe(cardListChangedCallback);
     }, [])
-    return (
-        <>
-            {cardList.map((Comp, index) => <Comp key={"CardonContainer_" + index} />)}
-        </>
-    )
+
+    return <>
+        {refList.map((ref) => {
+            const Comp = ref.component;
+            return <Comp key={"CardonContainer_" + ref.key} />
+        })}
+    </>
 }

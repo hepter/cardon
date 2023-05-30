@@ -1,18 +1,38 @@
-type CardonManagerSubscribeCallback = (componentList: React.ComponentType<any>[]) => void;
+import { CardonRef } from "./withCardon";
+
+type CardonManagerSubscribeCallback = (refList: CardonRef[]) => void;
 export class CardonManager {
-    private static cardList: React.ComponentType<any>[] = [];
+    private static refList: CardonRef[] = [];
     private static cardonSubscribeList: CardonManagerSubscribeCallback[] = []
     private static notify() {
-        for (let index = 0; index < this.cardonSubscribeList.length; index++) {
-            const func = this.cardonSubscribeList[index];
-            func(this.cardList);
+        for (const func of this.cardonSubscribeList) {
+            func(this.refList);
+        }
+    }
+    public static append(cardonRef: CardonRef) {
+        this.refList.push(cardonRef);
+        this.notify();
+    }
+
+    public static clear() {
+        for (const itemRef of this.refList) {
+            itemRef.resolve(undefined);
+            itemRef.resolve = () => { };
+            itemRef.setVisible(false);
+            itemRef.setVisible = () => { };
         }
     }
 
-    public static append(component: React.ComponentType<any>) {
-        this.cardList.push(component);
-        this.notify();
+    public static hide(key: string) {
+        const cardonRef = this.refList.find(cardonRef => cardonRef.key == key);
+        if (cardonRef) {
+            cardonRef.resolve(undefined);
+            cardonRef.resolve = () => { };
+            cardonRef.setVisible(false);
+            cardonRef.setVisible = () => { };
+        }
     }
+
     public static subscribe(func: CardonManagerSubscribeCallback) {
         this.cardonSubscribeList.push(func);
         this.notify();
